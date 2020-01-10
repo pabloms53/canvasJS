@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejes</title>
+</head>
+<body>
+    <canvas id="prueba" width="800px" height="800px"></canvas>
+    <canvas id="prueba2" width="800px" height="800px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('prueba');
+    var canvas2 = document.getElementById('prueba2');
+    var ctx = canvas.getContext('2d');
+    var ctx2 = canvas2.getContext('2d');
+    var centerX = canvas2.width / 2;
+    var centerY = canvas2.height / 2;
+    var altura = 300;
+
+    //Eje de ordenadas
+    ctx.beginPath();
+    ctx.moveTo(40, 40);
+    ctx.lineTo(40, 760);
+    ctx.stroke();
+
+    //Eje de abscisas
+    ctx.beginPath();
+    ctx.moveTo(40, 760);
+    ctx.lineTo(800, 761);
+    ctx.stroke();
+
+    //Creación de la barra de 2010
+    ctx.fillStyle = "red";
+    ctx.fillRect(70, 760, 50, -altura);
+    ctx.font = '15pt Calibri';
+    ctx.fillText('2010', 72, 790);
+
+    //Creación de barras de 2011
+    ctx.fillStyle = "blue";
+    ctx.fillRect(140, 760, 50, -500);
+    ctx.fillText('2011', 142, 790);
+
+    //Creación de barras de 2012
+    ctx.fillStyle = "orange";
+    ctx.fillRect(210, 760, 50, -500);
+    ctx.fillText('2012', 212, 790);
+
+    //Creación de barras de 2013
+    ctx.fillStyle = "green";
+    ctx.fillRect(280, 760, 50, -500);
+    ctx.fillText('2013', 282, 790);
+
+    //Creación de barras de 2014
+    ctx.fillStyle = "purple";
+    ctx.fillRect(350, 760, 50, -500);
+    ctx.fillText('2014', 352, 790);
+
+    //Creación de barras de 2015
+    ctx.fillStyle = "brown";
+    ctx.fillRect(420, 760, 50, -500);
+    ctx.fillText('2015', 422, 790);
+
+    //Creación de barras de 2016
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(490, 760, 50, -500);
+    ctx.fillStyle = "black";
+    ctx.fillText('2016', 492, 790);
+
+    //Creación de barras de 2017
+    ctx.fillStyle = "turquoise";
+    ctx.fillRect(560, 760, 50, -500);
+    ctx.fillText('2017', 562, 790);
+
+    //Creación de barras de 2018
+    ctx.fillStyle = "salmon";
+    ctx.fillRect(630, 760, 50, -500);
+    ctx.fillText('2018', 632, 790);
+
+    //Creación de barras de 2019
+    ctx.fillStyle = "cyan";
+    ctx.fillRect(700, 760, 50, -500);
+    ctx.fillText('2019', 702, 790);
+
+    // //Creación del círculo del pastel
+    // ctx2.beginPath();
+    // ctx2.arc(centerX, centerY, 250, 0, 2 * Math.PI, false);
+    // ctx2.lineWidth = 2;
+    // ctx2.stroke();
+
+    // //Creación del área
+    // ctx2.beginPath();
+    // ctx2.moveTo(centerX, centerY);
+    // ctx2.lineTo(centerX, 150);
+    // ctx2.stroke();
+</script>
+</html>
