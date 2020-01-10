@@ -1,9 +1,9 @@
 {
-    "Hoja1": [{
+    "DATOS": [{
             "AÑO": "2010",
             "ACCIDENTES_CON_VICTIMAS": "83105",
             "ACCIDENTES_MORTALES": "1953",
-            "VÍCTIMAS": "122823",
+            "VICTIMAS": "122823",
             "FALLECIDOS": "2478",
             "HERIDOS_HOSPITALIZADOS": "11975",
             "HERIDOS NO HOSPITALIZADOS": "112344"
@@ -12,7 +12,7 @@
             "AÑO": "2011",
             "ACCIDENTES_CON_VICTIMAS": "83027",
             "ACCIDENTES_MORTALES": "1683",
-            "VÍCTIMAS": "117687",
+            "VICTIMAS": "117687",
             "FALLECIDOS": "2060",
             "HERIDOS_HOSPITALIZADOS": "11347",
             "HERIDOS NO HOSPITALIZADOS": "113506"
@@ -21,7 +21,7 @@
             "AÑO": "2012",
             "ACCIDENTES_CON_VICTIMAS": "83115",
             "ACCIDENTES_MORTALES": "1523",
-            "VÍCTIMAS": "117793",
+            "VICTIMAS": "117793",
             "FALLECIDOS": "1903",
             "HERIDOS_HOSPITALIZADOS": "10444",
             "HERIDOS NO HOSPITALIZADOS": "112569"
@@ -30,7 +30,7 @@
             "AÑO": "2013",
             "ACCIDENTES_CON_VICTIMAS": "89519",
             "ACCIDENTES_MORTALES": "1348",
-            "VÍCTIMAS": "126400",
+            "VICTIMAS": "126400",
             "FALLECIDOS": "1680",
             "HERIDOS_HOSPITALIZADOS": "10086",
             "HERIDOS NO HOSPITALIZADOS": "112602"
@@ -39,7 +39,7 @@
             "AÑO": "2014",
             "ACCIDENTES_CON_VICTIMAS": "91570",
             "ACCIDENTES_MORTALES": "1329",
-            "VÍCTIMAS": "128320",
+            "VICTIMAS": "128320",
             "FALLECIDOS": "1688",
             "HERIDOS_HOSPITALIZADOS": "9574",
             "HERIDOS NO HOSPITALIZADOS": "117058"
@@ -48,7 +48,7 @@
             "AÑO": "2015",
             "ACCIDENTES_CON_VICTIMAS": "97756",
             "ACCIDENTES_MORTALES": "1559",
-            "VÍCTIMAS": "136144",
+            "VICTIMAS": "136144",
             "FALLECIDOS": "1689",
             "HERIDOS_HOSPITALIZADOS": "9495",
             "HERIDOS NO HOSPITALIZADOS": "124960"
@@ -57,7 +57,7 @@
             "AÑO": "2016",
             "ACCIDENTES_CON_VICTIMAS": "102362",
             "ACCIDENTES_MORTALES": "1663",
-            "VÍCTIMAS": "142200",
+            "VICTIMAS": "142200",
             "FALLECIDOS": "1810",
             "HERIDOS_HOSPITALIZADOS": "9755",
             "HERIDOS NO HOSPITALIZADOS": "130635"
@@ -66,7 +66,7 @@
             "AÑO": "2017",
             "ACCIDENTES_CON_VICTIMAS": "102233",
             "ACCIDENTES_MORTALES": "1672",
-            "VÍCTIMAS": "140992",
+            "VICTIMAS": "140992",
             "FALLECIDOS": "1830",
             "HERIDOS_HOSPITALIZADOS": "9546",
             "HERIDOS NO HOSPITALIZADOS": "129616"
@@ -75,7 +75,7 @@
             "AÑO": "2018",
             "ACCIDENTES_CON_VICTIMAS": "102299",
             "ACCIDENTES_MORTALES": "1679",
-            "VÍCTIMAS": "140415",
+            "VICTIMAS": "140415",
             "FALLECIDOS": "1806",
             "HERIDOS_HOSPITALIZADOS": "8935",
             "HERIDOS NO HOSPITALIZADOS": "129674"
@@ -84,7 +84,7 @@
             "AÑO": "2019",
             "ACCIDENTES_CON_VICTIMAS": "102425",
             "ACCIDENTES_MORTALES": "1643",
-            "VÍCTIMAS": "139936",
+            "VICTIMAS": "139936",
             "FALLECIDOS": "1799",
             "HERIDOS_HOSPITALIZADOS": "9021",
             "HERIDOS NO HOSPITALIZADOS": "129855"
@@ -93,7 +93,7 @@
             "AÑO": "TOTAL",
             "ACCIDENTES_CON_VICTIMAS": "937411",
             "ACCIDENTES_MORTALES": "16052",
-            "VÍCTIMAS": "1312710",
+            "VICTIMAS": "1312710",
             "FALLECIDOS": "18743",
             "HERIDOS_HOSPITALIZADOS": "100178",
             "HERIDOS NO HOSPITALIZADOS": "1212819"
