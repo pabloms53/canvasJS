@@ -10,7 +10,7 @@ window.onload = function() {
             //PROBAMOS QUE EL ACCESO A JSON FUNCIONE CORRECTAMENTE
 
             // resultado.DATOS.forEach(anio => {
-            //     console.log(anio['VICTIMAS']);
+            //     console.log(anio['FALLECIDOS']);
             // });
             //Gráfica lineal
             var canvas = document.getElementById('grafica');
