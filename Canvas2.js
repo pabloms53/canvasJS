@@ -1,9 +1,9 @@
-window.onload = function() {
+window.onload = function () {
     //Añadimos el JSON mediante AJAX
     var xhr = new this.XMLHttpRequest();
     xhr.open("GET", "Canvas2.json", true);
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.status == 200) {
             var resultado = JSON.parse(this.responseText)
 
@@ -12,36 +12,101 @@ window.onload = function() {
             // resultado.DATOS.forEach(anio => {
             //     console.log(anio['FALLECIDOS']);
             // });
-            //Gráfica lineal
+
             var canvas = document.getElementById('grafica');
-            var ctx = canvas.getContext('2d');
+            var contexto = canvas.getContext('2d');
 
-            //Eje de ordenadas
-            ctx.beginPath();
-            ctx.moveTo(40, 40);
-            ctx.lineTo(40, 500);
-            ctx.stroke();
 
-            //Eje de abscisas
-            ctx.beginPath();
-            ctx.moveTo(40, 500);
-            ctx.lineTo(700, 500);
-            ctx.stroke();
+            // Dibujamos los ejes
+            //  Eje de ordenadas
+            contexto.beginPath();
+            contexto.moveTo(130, 500);
+            contexto.lineTo(1000, 500);
+            contexto.stroke();
+            contexto.font = '15pt Calibri';
+            contexto.fillStyle = 'blue';
+            contexto.fillText('AÑO', 1030, 540);
+            contexto.closePath();
 
-            //Datos
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = "rgb(88, 214, 141)";
-            ctx.beginPath();
-            ctx.moveTo(50, 450);
-            ctx.lineTo(100, 200);
-            ctx.stroke();
-            ctx.closePath();
+            // Eje de abscisas
+            contexto.beginPath();
+            contexto.moveTo(130, 40);
+            contexto.lineTo(130, 500);
+            contexto.stroke();
+            contexto.font = '15pt Calibri';
+            contexto.fillStyle = "red";
+            contexto.fillText('FALLECIDOS', 0 , 20);
+            contexto.closePath();
 
-            ctx.beginPath();
-            ctx.moveTo(100, 200);
-            ctx.lineTo(150, 250);
-            ctx.stroke();
-            ctx.closePath();
+
+            // Hacemos las marcas
+            // Marcas del eje de ordenadas
+            distancia=150;
+
+            resultado.DATOS.forEach(anio => {
+                
+                contexto.font = '15pt Calibri';
+                contexto.fillStyle = "black";
+                contexto.fillText(anio.AÑO, distancia, 540);
+                distancia+=83;
+            })
+
+
+            contexto.beginPath();
+            for(i=170;i<=960; i+=83){
+                contexto.moveTo(i, 490);
+                contexto.lineTo(i, 510);
+                contexto.stroke();
+            }
+            contexto.closePath();
+
+
+
+            // Marcas del eje de abscisas
+            altura =508;
+
+            for(i = 1500; i<=2500; i=i+100){
+                contexto.font = '15pt Calibri';
+                contexto.fillStyle = "black";
+                contexto.fillText(i, 50, altura);
+                altura-=44;
+            }
+
+            
+            contexto.beginPath();
+            // contexto.strokeStyle="red";
+            //Movemos la pluma el punto cero de la grafica
+            for(i=456; i>=60; i-=44){
+                
+                contexto.moveTo(120, i);
+                contexto.lineTo(140, i);
+                contexto.stroke();
+            }
+            contexto.closePath();
+
+            
+            
+
+            // Dibujamos la grafica
+            
+            
+            function pintaGrafica() {
+
+                contexto.beginPath();               
+                // Calculamos la altura del espacio que tenemos para dibujar entre el numero maximo de fallecidos
+                
+                pixelFallecido = 440/2500; 
+                console.log(pixelFallecido*resultado.DATOS[0].FALLECIDOS);
+                contexto.moveTo(170,(500-(pixelFallecido*resultado.DATOS[0].FALLECIDOS)));
+                contexto.lineTo(800, 200);
+                contexto.stroke();
+
+                // resultado.DATOS.forEach(registro => {
+
+                // })
+            }
+
+            pintaGrafica();
 
         } else if (xhr.status == 404)
             console.log("Error 404 no encuentra la peticion")
