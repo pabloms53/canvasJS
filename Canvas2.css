@@ -1,5 +1,17 @@
+body{
+    background-color:#E0E6DF;
+}
+
 canvas {
     position: relative;
     left: 70px;
-    top: 70px;
+    top: 240px;
+}
+
+h1{
+    position:relative;
+    left:40px;
+    color:#B59368;
+    font-size:2.5em;
+    font-family:sans-serif;
 }
