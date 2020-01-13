@@ -12,9 +12,12 @@
 
 <body>
     <h1>Estadísticas de accidentes de tráfico en la década de 2010 a 2019</h1>
-    <input type="radio" name="grafica" value="lineal">Gráfica lineal
-    <input type="radio" name="grafica" value="barras">Gráfica de barras
-    <input type="radio" name="grafica" value="pastel">Gráfica de pastel
+    <input type="radio" id="lineal" name="grafica" value="lineal">
+    <label for="lineal">Gráfica lineal</label>
+    <input type="radio" id="barras" name="grafica" value="barras">
+    <label for="barras">Gráfica de barras</label>
+    <input type="radio" id="pastel" name="grafica" value="pastel">
+    <label for="pastel">Gráfica de pastel</label>
     <canvas id="grafica" width="2000" height="1000"></canvas>
 
 </body>

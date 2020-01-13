@@ -1,43 +1,46 @@
 {
     "DATOS": [{
             "AÑO": "2010",
-            "FALLECIDOS": "2478"
+            "FALLECIDOS": 2478
         },
         {
             "AÑO": "2011",
-            "FALLECIDOS": "2060"
+            "FALLECIDOS": 2060
         },
         {
             "AÑO": "2012",
-            "FALLECIDOS": "1903"
+            "FALLECIDOS": 2250
         },
         {
             "AÑO": "2013",
-            "FALLECIDOS": "1680"
+            "FALLECIDOS": 1680
         },
         {
             "AÑO": "2014",
-            "FALLECIDOS": "1688"
+            "FALLECIDOS": 1688
         },
         {
             "AÑO": "2015",
-            "FALLECIDOS": "1689"
+            "FALLECIDOS": 1689
         },
         {
             "AÑO": "2016",
-            "FALLECIDOS": "1810"
+            "FALLECIDOS": 1810
         },
         {
             "AÑO": "2017",
-            "FALLECIDOS": "1830"
+            "FALLECIDOS": 1830
         },
         {
             "AÑO": "2018",
-            "FALLECIDOS": "1806"
+            "FALLECIDOS": 1806
         },
         {
             "AÑO": "2019",
-            "FALLECIDOS": "1799"
+            "FALLECIDOS": 1799
         }
+    ],
+    "COLORES":[
+        "red", "red", "aquamarine", "magenta", "yellow", "purple", "orange", "pink", "brown","blue" 
     ]
 }

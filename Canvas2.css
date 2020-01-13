@@ -5,7 +5,8 @@ body{
 canvas {
     position: relative;
     left: 70px;
-    top: 240px;
+    top: 50px;
+    border:1px solid blue;
 }
 
 h1{

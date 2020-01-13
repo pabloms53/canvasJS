@@ -9,52 +9,75 @@ window.onload = function () {
             var canvas = document.getElementById('grafica');
             var contexto = canvas.getContext('2d');
 
-            
+            var radios = document.getElementsByTagName("input");
+            contexto.strokeStyle = "black";
+            contexto.lineWidth = 3;
 
-            // Dibujamos los ejes
-            //  Eje de ordenadas
-            contexto.beginPath();
-            contexto.moveTo(130, 500);
-            contexto.lineTo(1000, 500);
-            contexto.stroke();
-            contexto.font = '15pt Calibri';
-            contexto.fillStyle = 'blue';
-            contexto.fillText('AÑO', 1030, 540);
-            contexto.closePath();
+            for (radio of radios) {
+                radio.addEventListener("change", function (e) {
+                    if (e.target.value == "lineal") {
+                        contexto.clearRect(0, 0, 2000, 1000);
+                        pintaGraficaLineal();
+                    } else if (e.target.value == "barras") {
+                        contexto.clearRect(0, 0, 2000, 1000);
 
-            // Eje de abscisas
-            contexto.beginPath();
-            contexto.moveTo(130, 40);
-            contexto.lineTo(130, 500);
-            contexto.stroke();
-            contexto.font = '15pt Calibri';
-            contexto.fillStyle = "red";
-            contexto.fillText('FALLECIDOS', 0, 20);
-            contexto.closePath();
-
-
-            // Añadimos los valores de referencia de los ejes
-            // Añadimos los valores de referencia del eje de ordenadas
-            distancia = 150;
-
-            resultado.DATOS.forEach(anio => {
-
-                contexto.font = '15pt Calibri';
-                contexto.fillStyle = "black";
-                contexto.fillText(anio.AÑO, distancia, 540);
-                distancia += 83;
-            })
-
-            // Añadimos los valores de referencia del eje de abscisas
-            altura = 508;
-
-            for (i = 1500; i <= 2500; i = i + 100) {
-                contexto.font = '15pt Calibri';
-                contexto.fillStyle = "black";
-                contexto.fillText(i, 50, altura);
-                altura -= 44;
+                        pintaGraficaBarras();
+                    } else if (e.target.value == "pastel") {
+                        contexto.clearRect(0, 0, 2000, 1000);
+                        pintaGraficaPastel();
+                    }
+                });
             }
 
+            // Función para dibujar los ejes para la gráfica lineal y la de barras
+            function dibujaEjes() {
+
+                // Dibujamos los ejes
+                //  Eje de ordenadas
+
+
+                contexto.beginPath();
+                contexto.moveTo(130, 500);
+                contexto.lineTo(1000, 500);
+                contexto.stroke();
+                contexto.font = '15pt Calibri';
+                contexto.fillStyle = 'blue';
+                contexto.fillText('AÑO', 1030, 540);
+                contexto.closePath();
+
+                // Eje de abscisas
+                contexto.beginPath();
+                contexto.moveTo(130, 40);
+                contexto.lineTo(130, 500);
+                contexto.stroke();
+                contexto.font = '15pt Calibri';
+                contexto.fillStyle = "red";
+                contexto.fillText('FALLECIDOS', 0, 20);
+                contexto.closePath();
+
+
+                // Añadimos los valores de referencia de los ejes
+                // Añadimos los valores de referencia del eje de ordenadas
+                distancia = 150;
+
+                resultado.DATOS.forEach(anio => {
+
+                    contexto.font = '15pt Calibri';
+                    contexto.fillStyle = "black";
+                    contexto.fillText(anio.AÑO, distancia, 540);
+                    distancia += 83;
+                })
+
+                // Añadimos los valores de referencia del eje de abscisas
+                altura = 508;
+
+                for (i = 1500; i <= 2500; i = i + 100) {
+                    contexto.font = '15pt Calibri';
+                    contexto.fillStyle = "black";
+                    contexto.fillText(i, 50, altura);
+                    altura -= 44;
+                }
+            }
             // Calculamos los pixeles por fallecido dividiendo la altura del espacio que tenemos para dibujar entre el numero maximo de fallecidos
             pixelFallecido = 440 / 2500;
 
@@ -64,6 +87,8 @@ window.onload = function () {
 
             // Dibujamos la grafica  lineal
             function pintaGraficaLineal() {
+
+                dibujaEjes();
 
                 // Ponemos las marcas de los ejes
                 // Eje de ordenadas
@@ -96,58 +121,119 @@ window.onload = function () {
                 // Movemos la pluma al punto de inicio de la grafica
                 distanciaX = 170;
                 contexto.moveTo(distanciaX, altoInicial);
-                contexto.strokeStyle = "#40FF71";
+
 
 
                 movimiento = 1;
                 resultado.DATOS.forEach(anio => {
+                    contexto.strokeStyle = "#40FF71";
+                    contexto.lineWidth = 3;
 
                     distanciaY = 500 - (pixelFallecido * anio.FALLECIDOS);
                     distanciaX += 83;
 
-                    // console.log("movimiento: "+movimiento+ ", distancia x: "+ distanciaX + ", distancia y: "+distanciaY);
-                    contexto.lineWidth=3;
-                    contexto.lineTo(distanciaX, distanciaY);
-                    movimiento += 1;
-                    contexto.stroke();
+                    if (anio.AÑO != 2019) {
+                        contexto.lineTo(distanciaX, distanciaY);
+                        contexto.stroke();
+                    }
 
                 })
-            }
-
-            
-            function pintaGraficaBarras() {
-
-                inicialX=150;
-                contexto.fillStyle = "purple";
-                resultado.DATOS.forEach(anio => {
-                    altura = (pixelFallecido * anio.FALLECIDOS);
-                    contexto.fillRect(inicialX,500, 40, -altura);
-                    inicialX+=83;
-                })
-
-            }
-
-            function pintaGraficaPastel(){
-                contexto.beginPath();
-                contexto.arc(300, 200, 150, 0, 2*Math.PI);
-                contexto.fillStyle="red";
-                // contexto.arc(400, 300, 150, 0, Math.PI);
-                // contexto.fillStyle="yellow";
-                // contexto.arc(400, 300, 150, Math.PI, 0 );
-                // contexto.fillStyle="red";
-                
-                contexto.fill();
-                contexto.stroke();
+                contexto.strokeStyle = "black";
+                contexto.lineWidth = 3;
                 contexto.closePath();
             }
 
-            pintaGraficaLineal();
+
+            function pintaGraficaBarras() {
+
+                dibujaEjes();
+
+                inicialX = 150;
+                contexto.fillStyle = "purple";
+                resultado.DATOS.forEach(anio => {
+                    altura = (pixelFallecido * anio.FALLECIDOS);
+                    contexto.fillRect(inicialX, 500, 40, -altura);
+                    inicialX += 83;
+                })
+
+            }
+
+            function pintaGraficaPastel() {
+
+                sumaMuertos = 0;
+                resultado.DATOS.forEach(anio => {
+                    sumaMuertos += anio.FALLECIDOS;
+                })
+                console.log(sumaMuertos);
+
+                radianPorFallecido = (2 * Math.PI) / sumaMuertos;
+
+                // SECTORES HECHOS DE UNO EN UNO
+
+                // contexto.beginPath();
+                // contexto.moveTo(260, 220);
+                // contexto.arc(260, 220, 200, 0, radianPorFallecido*resultado.DATOS[0].FALLECIDOS);
+                // contexto.lineTo(260,220);
+                // console.log(radianPorFallecido*resultado.DATOS[0].FALLECIDOS);
+                // contexto.fillStyle="green";
+                // contexto.fill();
+                // contexto.stroke();
+                // contexto.closePath();
+
+                // contexto.beginPath();
+                // contexto.moveTo(260,220);
+                // contexto.arc(260, 220, 200, 0 + radianPorFallecido*resultado.DATOS[0].FALLECIDOS, radianPorFallecido*resultado.DATOS[0].FALLECIDOS+radianPorFallecido*resultado.DATOS[1].FALLECIDOS);
+                // contexto.lineTo(260,220);
+                // console.log(radianPorFallecido*resultado.DATOS[1].FALLECIDOS);
+                // contexto.fillStyle="red";
+                // contexto.fill();
+                // contexto.stroke();
+                // contexto.closePath();
+
+                // contexto.beginPath();
+                // contexto.moveTo(260,220);
+                // contexto.arc(260, 220, 200, radianPorFallecido*resultado.DATOS[0].FALLECIDOS+radianPorFallecido*resultado.DATOS[1].FALLECIDOS, radianPorFallecido*resultado.DATOS[0].FALLECIDOS+radianPorFallecido*resultado.DATOS[1].FALLECIDOS+radianPorFallecido*resultado.DATOS[2].FALLECIDOS);
+                // contexto.lineTo(260,220);
+                // console.log(radianPorFallecido*resultado.DATOS[2].FALLECIDOS);
+                // contexto.fillStyle="blue";
+                // contexto.fill();
+                // contexto.stroke();
+                // contexto.closePath();
+
+
+                posicionInicial = 0;
+                posicionFinal = radianPorFallecido * resultado.DATOS[0].FALLECIDOS;
+                color = 0;
+
+                resultado.DATOS.forEach(anio => {
+
+                    posicionAnterior=posicionFinal;
+                    contexto.beginPath();
+                    contexto.moveTo(260, 220);
+                    contexto.arc(260, 220, 200, posicionInicial, posicionFinal);
+                    datosAnteriores=radianPorFallecido*anio.FALLECIDOS;
+                    contexto.fillStyle=resultado.COLORES[color];
+                    // console.log(resultado.COLORES[color]);
+                    contexto.stroke();
+                    contexto.fill();
+                    contexto.closePath();
+                    posicionFinal+=posicionInicial+(posicionFinal);
+                    console.log(posicionFinal);
+                    posicionInicial=posicionInicial+datosAnteriores;
+
+                    color++;
+                })
+
+
+            }
+
+            // pintaGraficaLineal();
 
             // pintaGraficaBarras();
-    
+
             // pintaGraficaPastel();
 
-            
+
 
 
 
